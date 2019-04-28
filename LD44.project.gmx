@@ -35,6 +35,7 @@
     <sprite>sprites\sprBuggy</sprite>
     <sprite>sprites\sprScrap</sprite>
     <sprite>sprites\sprBullet2</sprite>
+    <sprite>sprites\sprCave</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\tile0</background>
@@ -86,6 +87,7 @@
     <object>objects\objScrap</object>
     <object>objects\objForeground</object>
     <object>objects\objNextLevel</object>
+    <object>objects\objCave</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMenu</room>

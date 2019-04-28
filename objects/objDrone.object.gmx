@@ -76,7 +76,7 @@ toDrawY = ds_map_create();
             if (bTimer &lt;= 0) {
                 var b = instance_create(x+40-(bombs*20) ,y+30,objBomb);
                 b.y_v = 2;
-                b.x_v -= 1;
+                b.x_v -= 0.5;
                 bombs -= 1;
                 bTimer = 10;
             }

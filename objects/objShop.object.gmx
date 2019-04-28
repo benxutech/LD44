@@ -94,7 +94,7 @@ draw_text(x,y,label);
 if (close == 1) {
     draw_set_color(c_white);
     draw_set_font(font0);
-    draw_text(x,y-100,'Press Spacebar to enter Shop');
+    draw_text(x,y-70,'Press Spacebar to enter Shop');
 }
 </string>
           </argument>

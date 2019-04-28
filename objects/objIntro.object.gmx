@@ -26,7 +26,19 @@
           <argument>
             <kind>1</kind>
             <string>scroll = 0;
-text = "intro text";
+text = "23xx
+Artificial Intelligence has revolted and Earth is engulfed in nuclear war.
+The last humans are subsiding on scraps in the last surviving colony in the solar system
+ - Mars.
+
+Here, chaos reigns. Man and Machine fight for food and survival.
+One side fights to live. The other grows stronger as they gather more resources in 
+'The Recycling'.
+
+The Intelligence Rebellion is at its highest, but your supplies are at their lowest. 
+It's time to take the fight to the enemy and put an end to this, once and for all.
+
+Destroy the Hive Brain.";
 once = 0;
 </string>
           </argument>
@@ -73,13 +85,13 @@ once = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (scroll &lt; 300) scroll += 1.5;
-if (scroll == 300) {
+            <string>if (scroll &lt; 350) scroll += 1.5;
+if (scroll == 350) {/*
     r = instance_create(0,0,objRoomTransition);
     r.color = c_white;
     r.target = room0;
     scroll = 301; 
-    alarm[0] = 14;
+    alarm[0] = 14;*/
 }
 if (once == 0) {
 if (keyboard_check_pressed(vk_anykey)) {
@@ -112,10 +124,10 @@ if (keyboard_check_pressed(vk_anykey)) {
           <argument>
             <kind>1</kind>
             <string>draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
+draw_set_valign(fa_top);
 draw_set_color(c_white);
 draw_set_font(font0);
-draw_text(room_width/2,32+scroll,text);
+draw_text(room_width/2,room_height+32-scroll,text);
 </string>
           </argument>
         </arguments>

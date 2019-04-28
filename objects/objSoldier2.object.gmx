@@ -41,7 +41,7 @@ fireVelocity = 4;
 hp = 1;
 
 ai = 0;
-fireRange = 200+irandom(100)
+fireRange = 250+irandom(100)
 retreatRange = 90+irandom(50)
 
 dieTimer = 0;
@@ -114,7 +114,7 @@ if (hp &gt; 0) {
             ai = 1;  // run
         }
         if (abs(x-objPlayer.x) &lt;= fireRange) {
-            if (abs(x_v) &lt;= 1) {
+            if (abs(x_v) &lt;= 0.1) {
                 gunCharge += 1;
             }
         }
@@ -129,8 +129,8 @@ if (hp &gt; 0) {
         b.sprite_index = sprBullet2;
         pointing = point_direction(x,y,x+dir,y-0.4);
         b.xv = dcos(pointing)*fireVelocity;
-        b.yv = -dsin(pointing)*fireVelocity;  
-        b.grav = 0.1;
+        b.yv = -dsin(pointing)*fireVelocity;
+        b.grav = 0.075;
     
         gunCharge = -30-irandom(10);
     }
