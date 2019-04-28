@@ -58,6 +58,7 @@
     <objects name="menu">
       <object>objects\objMenu</object>
       <object>objects\objMenuSelect</object>
+      <object>objects\objIntro</object>
       <object>objects\objButton</object>
     </objects>
     <object>objects\objControl</object>
@@ -81,12 +82,17 @@
     <object>objects\objShop</object>
     <object>objects\objRoomTransition</object>
     <object>objects\objScrap</object>
+    <object>objects\objForeground</object>
+    <object>objects\objNextLevel</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMenu</room>
     <room>rooms\rmSelect</room>
     <room>rooms\rmIntro</room>
     <room>rooms\room0</room>
+    <room>rooms\room4</room>
+    <room>rooms\rmHard</room>
+    <room>rooms\rmShop</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

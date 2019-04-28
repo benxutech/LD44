@@ -29,6 +29,8 @@
 timerLimit = 15;
 timer = timerLimit;
 color = c_black;
+
+if (instance_number(objRoomTransition) &gt; 1) visible = 0;
 </string>
           </argument>
         </arguments>

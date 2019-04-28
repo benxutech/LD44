@@ -100,7 +100,7 @@ instance_create(x,y,objScrap);
 
 
 if (hp &gt; 0) {
-    if (objPlayer) {
+    if (instance_exists(objPlayer)) {
         if (abs(x-objPlayer.x) &gt; fireRange) {
             dir = sign(objPlayer.x-x);
             if (abs(x_v) &lt; topSpeed) x_v += moveSpeed*dir;

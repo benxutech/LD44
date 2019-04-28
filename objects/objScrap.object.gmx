@@ -67,7 +67,7 @@ if (y == objControl.y) {
 }
 
 if (magnet &gt; 30) {
-    if (objPlayer) {
+    if (instance_exists(objPlayer)) {
         vecAmt = point_distance(x,y,objPlayer.x,objPlayer.y-40)*0.05;
         vecDir = point_direction(x,y,objPlayer.x,objPlayer.y-40);
         x_v += dcos(vecDir)*vecAmt;

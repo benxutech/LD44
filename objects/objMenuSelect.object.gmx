@@ -52,8 +52,7 @@ buttonSelect.label = "Select";
             <string>if (buttonSelect.trigger == 1) {
     //room_goto(room0);
     var r = instance_create(0,0,objRoomTransition);
-    r.target = room0;
-    r.color = c_white;
+    r.target = rmIntro;
     buttonSelect.trigger = 0;
 }
 </string>
@@ -78,17 +77,30 @@ buttonSelect.label = "Select";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(font1);
+            <string>draw_set_alpha(0.5);
+draw_set_color(c_black);
+h = 100;
+draw_rectangle(0,room_height/2-h,room_width,room_height/2+h,0);
+draw_set_alpha(1);
+
+draw_set_font(font1);
 draw_set_halign(fa_center);
-draw_set_color(c_white);
+draw_set_valign(fa_middle);
+draw_set_color(c_gray);
 draw_text(room_width/2,40,'Select Vehicle');
-draw_set_color(c_dkgray);
+draw_set_color(c_white);
 draw_set_font(font2);
-draw_text(room_width/2,100,'Desertcrawler');
+draw_text(room_width/2,100,'Desert-crawler');
 var scale = 1;
 draw_sprite_ext(sprTank,0,room_width/2,room_height/2,scale,scale,0,c_white,1);
 draw_sprite(sprBarrel,0,room_width/2+11,room_height/2-36);
 
+
+draw_set_font(font0);
+draw_set_halign(fa_right);
+draw_set_valign(fa_bottom);
+draw_set_color(c_white);
+draw_text(room_width,room_height,'Only 1 for now');
 
 
 </string>

@@ -68,7 +68,7 @@ toDrawY = ds_map_create();
             <string>if (hp &gt; 0) {
     if (y &gt; altitude+altThreshold) y_v -= hover;
 
-    if (objPlayer) {
+    if (instance_exists(objPlayer)) {
         target = objPlayer.x+(objControl.xVelocity*32)
         if (abs(x-target) &lt; 100) {
         if (bombs &gt; 0){
@@ -109,7 +109,13 @@ y_v += grav;
 
 x += x_v;
 y += y_v;
-    
+
+
+if (y &gt; objControl.y) {
+    instance_create(x,y,objExplosionAesthetic);
+    repeat(1+irandom(5)) { instance_create(x,y,objScrap); }
+    instance_destroy();
+}
 
 </string>
           </argument>

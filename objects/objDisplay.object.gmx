@@ -28,7 +28,7 @@
             <string>marginLeft = 12;
 marginTop = 12;
     hbx = 640/2;
-    hby = 320;
+    hby = 300;
     hbw = 640/10;
     hbh = 20/2;
 
@@ -54,7 +54,8 @@ marginTop = 12;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(font0);
+            <string>/// Tutorial draw
+draw_set_font(font0);
 draw_set_valign(fa_middle);
 draw_set_halign(fa_left);
 
@@ -113,14 +114,16 @@ draw_healthbar(hbx-hbw,hby-hbh,hbx+hbw,hby+hbh,pc, c_black, c_red, c_lime, 0, tr
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_set_font(font0);
-draw_text(hbx,hby+hbh+5,'Health: '+string(objControl.hp)+'/'+string(objControl.maxHp));
+draw_set_font(font2);
+draw_text(hbx,hby+hbh+3,'Health: '+string(objControl.hp)+'/'+string(objControl.maxHp));
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_set_font(font0);
-draw_text(20,hby+hbh+5,'Scrap: '+string(objControl.scrap));
+draw_set_font(font2);
+draw_text(20,hby+hbh+3,'Scrap: '+string(objControl.scrap));
+
+draw_line(0,0,0,room_height);
 </string>
           </argument>
         </arguments>
