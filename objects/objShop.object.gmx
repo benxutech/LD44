@@ -50,11 +50,16 @@ close = 0;
           <argument>
             <kind>1</kind>
             <string>if (instance_exists(objPlayer)) {
-    if (point_distance(x,y,objPlayer.x,objPlayer.y) &lt; 100) {
+    if (point_distance(x,y,objPlayer.x,objPlayer.y) &lt; 150) {
         close = 1;
     }
     else {
         close = 0;
+    }
+}
+if (close == 1) {
+    if (keyboard_check_pressed(vk_space)) {
+        
     }
 }
 </string>
@@ -85,6 +90,12 @@ draw_set_valign(fa_middle);
 draw_set_color(c_black);
 draw_set_font(font3);
 draw_text(x,y,label);
+
+if (close == 1) {
+    draw_set_color(c_white);
+    draw_set_font(font0);
+    draw_text(x,y-100,'Press Spacebar to enter Shop');
+}
 </string>
           </argument>
         </arguments>

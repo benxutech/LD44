@@ -28,6 +28,25 @@
             <string>timer = 0;
 spawnRate = 180;
 spawnAmount = 8;
+
+if (room == rmShop) {
+    spawnAmount = 0;
+}
+if (room == rmHard) {
+    spawnAmount = 22;
+    spawnRate = 100;
+}
+
+if (room == rmHard||room == room4) {
+    // spawn random enemies in room
+    repeat (12) {
+        instance_create(300+irandom(room_width-300),objControl.y,objSoldier2);
+    }
+    repeat (irandom(3)) {
+        instance_create(300+irandom(room_width-300),objControl.y,objBuggy);
+    }
+}
+
 </string>
           </argument>
         </arguments>
@@ -57,7 +76,8 @@ spawnAmount = 8;
         repeat (irandom(3)){
             instance_create(room_width+irandom(60),objControl.y,objSoldier2);
         }
-        choose(instance_create(room_width,objControl.y,objBuggy),0);
+        bug = choose(objBuggy,objBuggy2);
+        instance_create(room_width,objControl.y,bug)
         timer = spawnRate;
         spawnAmount -= 1;
     }

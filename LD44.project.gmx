@@ -42,6 +42,7 @@
     <background>background\bgMid</background>
     <background>background\bgFar</background>
     <background>background\bgSky</background>
+    <background>background\bgSkyDark</background>
     <background>background\background5</background>
   </backgrounds>
   <paths name="paths"/>
@@ -76,6 +77,7 @@
     <object>objects\objDrone</object>
     <object>objects\objSoldier_Old</object>
     <object>objects\objBuggy</object>
+    <object>objects\objBuggy2</object>
     <object>objects\objSoldier2</object>
     <object>objects\objInteractable</object>
     <object>objects\objScrapHeap</object>

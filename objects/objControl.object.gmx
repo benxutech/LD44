@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>barrel = instance_create(x,y,objBarrel);
+            <string>randomize();
+barrel = instance_create(x,y,objBarrel);
 
 pointing = 33;
 xVelocity = 0;
@@ -39,6 +40,7 @@ moveSpeed = 0.2;
 topSpeed = 4;
 viewTarget = x;
 hit = 0;
+fireRate = 15;
 
 toDrawX = ds_list_create();
 toDrawY = ds_list_create();
@@ -46,6 +48,7 @@ toDrawXprev = ds_list_create();
 toDrawYprev = ds_list_create();
 damagedTimer = 0;
 pTimer = 120;
+fireTimer = 0;
 
 // Stats
 scrap = 0;
@@ -55,7 +58,7 @@ accelMod = 1;
 topSpdMod = 1.5;
 repair = 1;
 expAmt = 1;
-reload = 1;
+reloadMod = 1;
 damage = 1;
 muzVelo = 1;
 resistChance = 0;
@@ -72,11 +75,12 @@ global.level = 0;
 global.stage = 0;
 currentStage = stages[|global.stage];
 currentLevel = currentStage[|global.level];
+nextLevel = currentStage[|global.level+1];
 
-show_debug_message(stages[|0]);
-show_debug_message(stages[|1]);
-show_debug_message(stages[|2]);
-show_debug_message(stages[|3]);
+show_debug_message(currentStage[|0]);
+show_debug_message(currentStage[|1]);
+show_debug_message(currentStage[|2]);
+show_debug_message(currentStage[|3]);
 
 
 
@@ -136,7 +140,12 @@ show_debug_message(stages[|3]);
     barrel.y = player.y-36;
     barrel.image_index = pointing/(180/13);
     
-    if (keyboard_check_pressed(ord('C'))) {
+    // Shoot
+    
+    if (fireTimer &gt; 0) fireTimer -= 1;
+    if (fireTimer &lt;= 0) {
+    if (keyboard_check(ord('C'))) {
+        // Projectile
         var b = instance_create(barrel.x,barrel.y,objBullet);
         b.owner = id;
         b.xv = dcos(pointing)*fireVelocity;// + xVelocity;
@@ -148,11 +157,12 @@ show_debug_message(stages[|3]);
         var f = instance_create(barrel.x,barrel.y,objMuzzleflash);
         f.sprite_index = sprFire2;
         f.owner = barrel;
-        
         var diff = abs(pointing-90);
         f.yOffset = (90-diff)*0.2;
         f.image_angle = pointing;
-    }
+        // Reload
+        fireTimer = fireRate*reloadMod;
+    }}
     
     // Hits
     hit = instance_place(player.x,player.y,objBulletEnemy);
@@ -160,6 +170,14 @@ show_debug_message(stages[|3]);
         hp -= 1;
         damagedTimer = 3;
         with (hit) instance_destroy();
+    }
+    ram = instance_place(player.x,player.y,objEnemy);
+    if (ram) {
+        if (ram.object_index != objSoldier2) {
+            hp -= 1;
+            damagedTimer = 3;
+            with (ram) instance_destroy();
+        }
     }
     
     // Trajectory
@@ -191,7 +209,7 @@ show_debug_message(stages[|3]);
     }
     
     // Interact
-    int = instance_nearest(player.x,player.y,objInteractable);
+    /*int = instance_nearest(player.x,player.y,objInteractable);
     intX = 0;
     if (int) {
         if (point_distance(player.x,player.y,int.x,int.y) &lt; 70) {
@@ -201,12 +219,15 @@ show_debug_message(stages[|3]);
         else {
             intLabel = "";
         }
-    }
+    }*/
     
     // Levels
     if (player.x &gt; room_width) {
         var stageAmt = ds_list_size(stages[|global.stage]);
-        if (global.level &lt; stageAmt) global.level += 1;
+        if (global.level &lt; stageAmt) {
+            global.level += 1;
+            nextLevel = currentStage[|global.level+1];
+        }
         else {
             ds_list_add(stages, ds_list_create());
             ds_list_add(stages[|global.stage], irandom(2));  // 0=normal,1=hard,2=shop
@@ -214,6 +235,7 @@ show_debug_message(stages[|3]);
             ds_list_add(stages[|global.stage], irandom(2));
             ds_list_add(stages[|global.stage], irandom(2));
             global.level = 0;
+            nextLevel = -1;
         }
         currentStage = stages[|global.stage];
         currentLevel = currentStage[|global.level];
@@ -223,10 +245,11 @@ show_debug_message(stages[|3]);
     }
     
     // HP
+    if (hp &gt; maxHp) hp = maxHp;
     if (hp &lt;= 0) {
         e = instance_create(player.x,player.y,objExplosion);
         e.sprite_index = sprExplode1;
-        e.scale = 1.5;
+        e.scale = 2;
         e.image_xscale = e.scale;
         e.image_yscale = e.scale;
         with(player) instance_destroy();
@@ -249,7 +272,7 @@ if (!instance_exists(objPlayer)) {
         player = instance_create(x,y,objPlayer);
         pTimer = 120;
         hp = maxHp;
-        scrap = floor(scrap/2);
+        scrap = 0;//floor(scrap/2);
     }
 }
 

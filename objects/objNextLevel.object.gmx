@@ -36,6 +36,7 @@ draw_line(x,y-360,x,y+360);
 
 draw_set_color(c_blue);
 //draw_arrow(x,y-50,x+50,y-50,10);
+draw_line(0,0,0,room_height);
 </string>
           </argument>
         </arguments>

@@ -54,8 +54,8 @@
     <instance objName="objLevelController" x="32" y="32" name="inst_9AEB550E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objDisplay" x="96" y="32" name="inst_9D548DBB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objNextLevel" x="2496" y="192" name="inst_FEABA216" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objShop" x="1984" y="192" name="inst_9C075226" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objForeground" x="1824" y="352" name="inst_E3834A90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objShop" x="1920" y="192" name="inst_9C075226" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objForeground" x="1792" y="352" name="inst_E3834A90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objForeground" x="2176" y="352" name="inst_0F392DA9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objForeground" x="736" y="352" name="inst_463563FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>

@@ -55,6 +55,7 @@ marginTop = 12;
           <argument>
             <kind>1</kind>
             <string>/// Tutorial draw
+if (room == room0) {
 draw_set_font(font0);
 draw_set_valign(fa_middle);
 draw_set_halign(fa_left);
@@ -86,7 +87,7 @@ index++;
 draw_sprite(sprKeys,7,marginLeft+interval*index,marginTop+vInterval*vIndex);
 index++;
 draw_text(marginLeft+interval*index+8,marginTop+vInterval*vIndex+vInterval/2+yOff,'Move');
-
+}
 </string>
           </argument>
         </arguments>
@@ -115,15 +116,27 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
 draw_set_font(font2);
-draw_text(hbx,hby+hbh+3,'Health: '+string(objControl.hp)+'/'+string(objControl.maxHp));
+draw_text(hbx,hby+hbh+3,'Hull: '+string(objControl.hp)+'/'+string(objControl.maxHp));
 
-draw_set_halign(fa_left);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+draw_set_font(font0);
+str = "";
+if (objControl.nextLevel == 0) str="Regular level";
+if (objControl.nextLevel == 1) str="Hard level";
+if (objControl.nextLevel == 2) str="Shop level";
+if (objControl.nextLevel == -1) str="New stage";
+draw_text(hbx,5,'Next: '+str);
+
+
+/*draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
 draw_set_font(font2);
-draw_text(20,hby+hbh+3,'Scrap: '+string(objControl.scrap));
+draw_text(20,hby+hbh+3,'Scrap: '+string(objControl.scrap));*/
 
-draw_line(0,0,0,room_height);
+
 </string>
           </argument>
         </arguments>

@@ -90,7 +90,9 @@ if (y &gt; objControl.y) y = objControl.y;
 
 // Collide
 if (instance_place(x,y,objPlayer)) {
-    objControl.scrap += 1;
+    //objControl.scrap += 1;
+    objControl.hp += 0.05;
+    if (objControl.hp &gt; objControl.maxHp) objControl.hp = objControl.maxHp;
     instance_destroy();
 }
 

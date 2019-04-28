@@ -50,7 +50,7 @@ once = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(64,256,objControl);
+            <string>instance_create(64,288,objControl);
 </string>
           </argument>
         </arguments>
@@ -79,6 +79,7 @@ if (scroll == 300) {
     r.color = c_white;
     r.target = room0;
     scroll = 301; 
+    alarm[0] = 14;
 }
 if (once == 0) {
 if (keyboard_check_pressed(vk_anykey)) {

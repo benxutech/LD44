@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>origX = x*1.5//(1+1/3);
+            <string>origX = x*(1+1/3);
 xx = 0;
 x = origX - xx;
 image_xscale = 1.25;
