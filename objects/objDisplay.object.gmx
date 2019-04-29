@@ -75,12 +75,12 @@ vIndex++;
 draw_sprite(sprKeys,2,marginLeft+interval*index,marginTop+vInterval*vIndex);
 index++;
 draw_text(marginLeft+interval*index+8,marginTop+vInterval*vIndex+vInterval/2+yOff,'Shoot');
-index = 0;
+/*index = 0;
 vIndex++;
 draw_sprite(sprKeys,3,marginLeft+interval*index,marginTop+vInterval*vIndex);
 index++;
 draw_text(marginLeft+interval*index+8,marginTop+vInterval*vIndex+vInterval/2+yOff,'Change Ammo Type');
-index = 0;
+*/index = 0;
 vIndex++;
 draw_sprite(sprKeys,4,marginLeft+interval*index,marginTop+vInterval*vIndex);
 index++;
@@ -108,7 +108,8 @@ draw_text(marginLeft+interval*index+8,marginTop+vInterval*vIndex+vInterval/2+yOf
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>if (!instance_exists(objShopUI)){
+
 pc = (objControl.hp/objControl.maxHp)*100;
 draw_healthbar(hbx-hbw,hby-hbh,hbx+hbw,hby+hbh,pc, c_black, c_red, c_lime, 0, true, true);
 
@@ -136,7 +137,7 @@ draw_set_color(c_white);
 draw_set_font(font2);
 draw_text(20,hby+hbh+3,'Scrap: '+string(objControl.scrap));*/
 
-
+}
 </string>
           </argument>
         </arguments>

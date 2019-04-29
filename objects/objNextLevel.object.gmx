@@ -30,13 +30,15 @@ draw_set_halign(fa_right);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
 draw_set_font(font2);
-draw_text(x,y,'Next level');
+draw_text(x-20,y,'Next level');
 
-draw_line(x,y-360,x,y+360);
 
-draw_set_color(c_blue);
-//draw_arrow(x,y-50,x+50,y-50,10);
+draw_set_color(c_red);
+draw_set_alpha(0.5);
 draw_line(0,0,0,room_height);
+draw_set_color(c_blue);
+draw_line(x,y-360,x,y+360);
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>

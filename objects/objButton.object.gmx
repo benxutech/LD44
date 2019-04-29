@@ -3,7 +3,7 @@
   <spriteName>sprButton</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -28,6 +28,8 @@
             <string>trigger = 0;
 label = "";
 clicked = 0;
+xx = x;
+yy = y;
 </string>
           </argument>
         </arguments>
@@ -90,6 +92,8 @@ if (clicked) {
     }
 }
 
+x = xx+view_xview[0];
+y = yy+view_yview[0];
 </string>
           </argument>
         </arguments>

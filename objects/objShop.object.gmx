@@ -27,6 +27,32 @@
             <kind>1</kind>
             <string>label = "Ye olde shoppe";
 close = 0;
+
+temp = scrAllperks();
+ds_list_shuffle(temp);
+
+items = ds_list_create();
+i = 0;
+ds_list_add(items,temp[|i]); i++;
+ds_list_add(items,temp[|i]); i++;
+ds_list_add(items,temp[|i]);
+
+ds_list_destroy(temp);
+
+show_debug_message(items[|0]);
+show_debug_message(items[|1]);
+show_debug_message(items[|2]);
+
+prices = ds_list_create();
+ds_list_add(prices,5);
+ds_list_add(prices,3+irandom(1))
+ds_list_add(prices,4+irandom(2))
+ds_list_shuffle(prices);
+
+purchased[0] = 0;
+purchased[1] = 0;
+purchased[2] = 0;
+
 </string>
           </argument>
         </arguments>
@@ -59,7 +85,12 @@ close = 0;
 }
 if (close == 1) {
     if (keyboard_check_pressed(vk_space)) {
-        
+        if (!instance_exists(objShopUI)) {
+            ui = instance_create(0,0,objShopUI);
+            ui.items = items;
+            ui.prices = prices;
+            ui.purchased = purchased;
+        }
     }
 }
 </string>

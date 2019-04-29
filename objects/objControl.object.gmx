@@ -62,6 +62,7 @@ reloadMod = 1;
 damage = 1;
 muzVelo = 1;
 resistChance = 0;
+perks = ds_list_create();
 
 // Meta
 stages = ds_list_create();
@@ -107,6 +108,7 @@ show_debug_message(currentStage[|3]);
           <argument>
             <kind>1</kind>
             <string>if (instance_exists(objPlayer)) {
+if (!instance_exists(objShopUI)) {
     // Move
     left = -keyboard_check(vk_left);
     right = keyboard_check(vk_right);
@@ -141,18 +143,18 @@ show_debug_message(currentStage[|3]);
     barrel.image_index = pointing/(180/13);
     
     // Shoot
-    
-    if (fireTimer &gt; 0) fireTimer -= 1;
+    if (fireTimer &gt; 0) fireTimer -= 1*reloadMod;
     if (fireTimer &lt;= 0) {
     if (keyboard_check(ord('C'))) {
         // Projectile
         var b = instance_create(barrel.x,barrel.y,objBullet);
         b.owner = id;
-        b.xv = dcos(pointing)*fireVelocity;// + xVelocity;
-        b.yv = -dsin(pointing)*fireVelocity;
+        b.xv = dcos(pointing)*fireVelocity*muzVelo;// + xVelocity;
+        b.yv = -dsin(pointing)*fireVelocity*muzVelo;
         b.grav = grav;
         b.airRes = airRes;
         b.visTimer = 2;
+        b.expAmt = expAmt;
         // Muzzle flash
         var f = instance_create(barrel.x,barrel.y,objMuzzleflash);
         f.sprite_index = sprFire2;
@@ -161,7 +163,7 @@ show_debug_message(currentStage[|3]);
         f.yOffset = (90-diff)*0.2;
         f.image_angle = pointing;
         // Reload
-        fireTimer = fireRate*reloadMod;
+        fireTimer = fireRate;
     }}
     
     // Hits
@@ -244,6 +246,11 @@ show_debug_message(currentStage[|3]);
         if (currentLevel == 2) room_goto(rmShop);
     }
     
+    // Perks // not use like this, save time
+    //for (var i=0; i&lt;ds_list_size(perks); i++) {
+        //switch
+    //}
+    
     // HP
     if (hp &gt; maxHp) hp = maxHp;
     if (hp &lt;= 0) {
@@ -254,7 +261,7 @@ show_debug_message(currentStage[|3]);
         e.image_yscale = e.scale;
         with(player) instance_destroy();
     }
-}
+}}
 // View
 if (instance_exists(objPlayer)) viewTarget = player.x-(view_wview[0]/2)-((pointing-90)*3);
 view_xview[0] = viewTarget;

@@ -74,7 +74,7 @@ if (room == rmHard||room == room4) {
     if (timer &lt;= 0) {
         if (room != room0) instance_create(room_width,0,objDrone);
         if (room = rmHard) instance_create(room_width+55,0,objDrone);
-        repeat (irandom(3)){
+        repeat (irandom(3+global.level)){
             instance_create(room_width+irandom(60),objControl.y,objSoldier2);
         }
         bug = choose(objBuggy,objBuggy2);

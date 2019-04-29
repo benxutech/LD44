@@ -78,7 +78,7 @@ buttonSelect.label = "Select";
           <argument>
             <kind>1</kind>
             <string>draw_set_alpha(0.5);
-draw_set_color(c_black);
+draw_set_color(c_white);
 h = 100;
 draw_rectangle(0,room_height/2-h,room_width,room_height/2+h,0);
 draw_set_alpha(1);
@@ -86,9 +86,9 @@ draw_set_alpha(1);
 draw_set_font(font1);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-draw_set_color(c_gray);
-draw_text(room_width/2,40,'Select Vehicle');
 draw_set_color(c_white);
+draw_text(room_width/2,40,'Select Vehicle');
+draw_set_color(c_dkgray);
 draw_set_font(font2);
 draw_text(room_width/2,100,'Desert-crawler');
 var scale = 1;
@@ -98,9 +98,9 @@ draw_sprite(sprBarrel,0,room_width/2+11,room_height/2-36);
 draw_set_font(font0);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_color(c_white);
+draw_set_color(c_dkgray);
 text = 'A heavily modified hunk of metal scraps. 
-Apparently based on some sort of antique.'
+Apparently based on some sort of Earth antique.'
 draw_text(room_width/2,room_height/2+30,text);
 
 draw_set_font(font0);

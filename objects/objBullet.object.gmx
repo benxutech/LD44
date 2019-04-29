@@ -29,6 +29,7 @@
 grav = 2;
 airRes = 0//0.1;
 visTimer = 0;
+expAmt = 1;
 </string>
           </argument>
         </arguments>
@@ -51,7 +52,9 @@ visTimer = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(x,y,objExplosion);
+            <string>e = instance_create(x,y,objExplosion);
+e.image_xscale = expAmt;
+e.image_yscale = expAmt;
 </string>
           </argument>
         </arguments>

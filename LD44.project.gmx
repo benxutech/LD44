@@ -49,6 +49,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\bulletMove.gml</script>
+    <script>scripts\scrAllperks.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
@@ -88,6 +89,7 @@
     <object>objects\objForeground</object>
     <object>objects\objNextLevel</object>
     <object>objects\objCave</object>
+    <object>objects\objShopUI</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmMenu</room>
