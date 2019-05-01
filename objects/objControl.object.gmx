@@ -185,8 +185,8 @@ if (!instance_exists(objShopUI)) {
     // Trajectory
     var prevX = barrel.x;
     var prevY = barrel.y;
-    var xv = dcos(pointing)*fireVelocity;
-    var yv = -dsin(pointing)*fireVelocity;
+    var xv = dcos(pointing)*fireVelocity*muzVelo;
+    var yv = -dsin(pointing)*fireVelocity*muzVelo;
     ds_list_clear(toDrawX);
     ds_list_clear(toDrawY);
     ds_list_clear(toDrawXprev);
